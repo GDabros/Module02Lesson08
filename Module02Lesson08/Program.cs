@@ -83,7 +83,7 @@ Console.Write("Liczby oraz ich trzecie potęgi: ");
 
 for (int i = 1; i <= 20; i++)
 {
-    int cube = i * i * i;
+    int cube = (int)Math.Pow(1, 3);
     Console.WriteLine($"{i} ^ 3 = {cube}");
 }
 
@@ -173,11 +173,11 @@ Console.WriteLine($"Liczba binarna = {binary}");
 
 // Exercise 10
 
-Console.WriteLine("Program pozwoli znaleźć najmniejsząwspólną wielokrotność dla dwóch liczb.");
-Console.Write("Podaj pierwszą liczbę:");
+Console.WriteLine("Program pozwoli znaleźć najmniejszą wspólną wielokrotność dla dwóch liczb.");
+Console.Write("Podaj pierwszą liczbę: ");
 int valA = int.Parse(Console.ReadLine());
 
-Console.Write("Podaj drugą liczbę:");
+Console.Write("Podaj drugą liczbę: ");
 int valB = int.Parse(Console.ReadLine());
 
 static int NWD(int valA, int valB)
