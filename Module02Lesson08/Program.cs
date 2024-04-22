@@ -13,7 +13,7 @@ for (int i = 0; i <= 100; i++)
         countNumbers++;
     }
 }
-    static bool IsPrime(int number)
+static bool IsPrime(int number)
 {
     if (number <= 1)
         return false;
@@ -33,7 +33,7 @@ Console.WriteLine($"W zakresie od 0 do 100 znajduje się {countNumbers} liczb pi
 
 Console.WriteLine("Poniżej wszystkie liczby parzyste z zakresu 0 - 1000");
 
-for (int val = 2; val <= 1000; val +=2)
+for (int val = 2; val <= 1000; val += 2)
 {
     Console.WriteLine(val);
 }
@@ -42,47 +42,50 @@ for (int val = 2; val <= 1000; val +=2)
 // Exercise 03
 
 Console.Write("Podaj długość ciągu Fibonacciego: ");
-int valFibonacci = Int32.Parse(Console.ReadLine());
+int valFibonacci = int.Parse(Console.ReadLine());
 
 Console.WriteLine("Ciąg Fibonacciego:");
 
 int a = 0, b = 1;
 for (int i = 0; i < valFibonacci; i++)
-    {
-        Console.Write(a + " , ");
-        int temp = a;
-        a = b;
-        b = temp + b;
-    }
+{
+    Console.Write(a + " , ");
+    int temp = a;
+    a = b;
+    b = temp + b;
+}
 
 
 // Exercise 04
 
-Console.WriteLine("Podaj liczbę całkowitą:");
-int pyramid = Int32.Parse(Console.ReadLine());
+Console.Write("Podaj liczbę całkowitą: ");
+int n = int.Parse(Console.ReadLine());
 
-    int currentNumber = 1;
+int currentNumber = 1;
 
-    for (int i = 1; i <= pyramid; i++)
+for (int i = 1; i <= n; i++)
+{
+    for (int j = 1; j <= i; j++)
     {
-        for (int j = 1; j <= i; j++)
-        {
-            Console.Write(currentNumber + " ");
-            currentNumber++;
-        }
-        Console.WriteLine();
+        Console.Write(currentNumber + " ");
+        currentNumber++;
+        if (currentNumber > n)
+            break;
     }
-
+    Console.WriteLine();
+    if (currentNumber > n)
+        break;
+}
 
 // Exercise 05
 
-Console.WriteLine("Liczby oraz ich trzecie potęgi:");
+Console.Write("Liczby oraz ich trzecie potęgi: ");
 
-    for (int i = 1; i <= 20; i++)
-    {
-        int cube = i * i * i;
-        Console.WriteLine($"{i} ^ 3 = {cube}");
-    }
+for (int i = 1; i <= 20; i++)
+{
+    int cube = i * i * i;
+    Console.WriteLine($"{i} ^ 3 = {cube}");
+}
 
 
 // Exercise 06 
@@ -98,35 +101,43 @@ Console.WriteLine(sum);
 
 // Exercise 07
 
-Console.WriteLine("Podaj długość krótszej przekątnej diamentu:");
-int lenght = Int32.Parse(Console.ReadLine());
+Console.Write("Podaj długość przekątnej diamentu: ");
+int diamondDiagonal = int.Parse(Console.ReadLine());
 
-    
-    for (int i = 1; i <= lenght; i++)
+
+for (int i = 1; i <= diamondDiagonal; i += 2)
+{
+    int stars = i;
+    int spacebars = (diamondDiagonal - stars) / 2;
+
+    for (int j = 0; j < spacebars; j++)
     {
-        for (int j = 1; j <= lenght - i; j++)
-        {
-            Console.Write(" ");
-        }
-        for (int k = 1; k <= 2 * i - 1; k++)
-        {
-            Console.Write("*");
-        }
-        Console.WriteLine();
+        Console.Write(" ");
     }
-    
-    for (int i = lenght - 1; i >= 1; i--)
+
+    for (int j = 0; j < stars; j++)
     {
-        for (int j = 1; j <= lenght - i; j++)
-        {
-            Console.Write(" ");
-        }
-        for (int k = 1; k <= 2 * i - 1; k++)
-        {
-            Console.Write("*");
-        }
-        Console.WriteLine();
+        Console.Write("*");
     }
+    Console.WriteLine();
+}
+
+for (int i = diamondDiagonal - 2; i >= 1; i -= 2)
+{
+    int stars = i;
+    int spacebars = (diamondDiagonal - stars) / 2;
+
+    for (int j = 0; j < spacebars; j++)
+    {
+        Console.Write(" ");
+    }
+
+    for (int j = 0; j < stars; j++)
+    {
+        Console.Write("*");
+    }
+    Console.WriteLine();
+}
 
 
 // Exercise 08
@@ -146,17 +157,17 @@ Console.WriteLine();
 // Exercise 09
 
 Console.Write("Wpisz liczbę dzisiętną: ");
-int decimalNumber = Int32.Parse(Console.ReadLine());
+int decimalNumber = int.Parse(Console.ReadLine());
 
-    string binary = "";
+string binary = "";
 
-    while (decimalNumber > 0)
-    {
-        int i = decimalNumber % 2;
-        decimalNumber /= 2;
-        binary = i + binary;
-        
-    }
+while (decimalNumber > 0)
+{
+    int i = decimalNumber % 2;
+    decimalNumber /= 2;
+    binary = i + binary;
+
+}
 Console.WriteLine($"Liczba binarna = {binary}");
 
 
@@ -164,10 +175,10 @@ Console.WriteLine($"Liczba binarna = {binary}");
 
 Console.WriteLine("Program pozwoli znaleźć najmniejsząwspólną wielokrotność dla dwóch liczb.");
 Console.Write("Podaj pierwszą liczbę:");
-int valA = Int32.Parse(Console.ReadLine());
+int valA = int.Parse(Console.ReadLine());
 
 Console.Write("Podaj drugą liczbę:");
-int valB = Int32.Parse(Console.ReadLine());
+int valB = int.Parse(Console.ReadLine());
 
 static int NWD(int valA, int valB)
 {
