@@ -104,41 +104,37 @@ Console.WriteLine(sum);
 Console.Write("Podaj długość przekątnej diamentu: ");
 int diamondDiagonal = int.Parse(Console.ReadLine());
 
-
-for (int i = 1; i <= diamondDiagonal; i += 2)
+if (diamondDiagonal < 1 || diamondDiagonal % 2 == 0)
 {
-    int stars = i;
-    int spacebars = (diamondDiagonal - stars) / 2;
+    Console.WriteLine("Długość przekątnej diamentu musi być liczbą nieparzystą większą od 0.");
+    return;
+}
 
-    for (int j = 0; j < spacebars; j++)
-    {
-        Console.Write(" ");
-    }
+int midpoint = diamondDiagonal / 2 + 1;
 
-    for (int j = 0; j < stars; j++)
+for (int i = 1; i <= midpoint; i++)
+{
+    for (int j = 1; j <= diamondDiagonal; j++)
     {
-        Console.Write("*");
+        if (j >= midpoint - i + 1 && j <= midpoint + i - 1)
+            Console.Write("*");
+        else
+            Console.Write(" ");
     }
     Console.WriteLine();
 }
 
-for (int i = diamondDiagonal - 2; i >= 1; i -= 2)
+for (int i = midpoint - 1; i >= 1; i--)
 {
-    int stars = i;
-    int spacebars = (diamondDiagonal - stars) / 2;
-
-    for (int j = 0; j < spacebars; j++)
+    for (int j = 1; j <= diamondDiagonal; j++)
     {
-        Console.Write(" ");
-    }
-
-    for (int j = 0; j < stars; j++)
-    {
-        Console.Write("*");
+        if (j >= midpoint - i + 1 && j <= midpoint + i - 1)
+            Console.Write("*");
+        else
+            Console.Write(" ");
     }
     Console.WriteLine();
 }
-
 
 // Exercise 08
 
